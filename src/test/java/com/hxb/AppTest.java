@@ -1,4 +1,4 @@
-package hxb.demo.Pro_stock;
+package com.hxb;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
