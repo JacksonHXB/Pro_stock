@@ -9,7 +9,7 @@
 	</select>
 	
 	<!-- 根据用户名查询用户 -->
-	<select id="queryUserByName" resultType="com.hxb.entity.User" parameterType="java.lang.String">
+	<select id="queryUserByName" resultType="com.hxb.entity.User">
 		SELECT * FROM tb_user WHERE username=#{username} 
 	</select>
 </mapper>

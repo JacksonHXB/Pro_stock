@@ -6,6 +6,7 @@ import java.util.Date;
 public class User {
 	private Integer id;//ID号			
 	private String username;//名称
+	private String password;
 	private Integer gender;//性别
 	private Date birth;//出生日期
 	private String email;//Email地址
@@ -21,6 +22,12 @@ public class User {
 	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public Integer getGender() {
 		return gender;

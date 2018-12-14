@@ -10,8 +10,7 @@ import com.hxb.entity.User;
 import com.hxb.service.UserService;
 
 @Service
-public class UserServiceImp implements UserService{
-	
+public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	UserDao userDao;
@@ -24,13 +23,54 @@ public class UserServiceImp implements UserService{
 
 	/*用户登陆*/
 	@Override
-	public User login(String username, String password) {
-		User user = userDao.queryUserByName(username);
-		if(user.get){
-			
-		}
-		
-		return null;
+	public User login(String username, String password) {	
+		return userDao.queryUserByName(username);
 	}
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
