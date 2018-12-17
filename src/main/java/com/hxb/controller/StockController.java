@@ -17,8 +17,6 @@ public class StockController {
 	@GetMapping("/stock/{code}")
 	public String getStockInfo(@PathVariable("code") String code){
 		String result = stockService.getStockInfo(code);
-		
-		
 		return result;
 	}
 }
