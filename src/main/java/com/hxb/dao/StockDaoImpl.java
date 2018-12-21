@@ -3,24 +3,20 @@ package com.hxb.dao;
 
 import org.springframework.stereotype.Repository;
 
+import com.hxb.entity.Stock;
+import com.hxb.utils.HttpClientUtil;
+
 @Repository
 public class StockDaoImpl implements StockDao{
 	
 	@Override
 	public String queryStockByCode(String code) {
-		String url = "http://hq.sinajs.cn/list=sh601006";
-		
-		String result = request("sh601006");
+		Stock stock = new Stock();
+		String url = "http://hq.sinajs.cn/list=sh000001";
+		String result = HttpClientUtil.sendHttpGet(url);
+		System.out.println(result);
 		
 		return result;
-	}
-	
-	//http://hq.sinajs.cn/list=sh601006
-	public String request(String url){
-		
-		
-		
-		return null;
 	}
 }
 
