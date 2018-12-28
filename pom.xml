@@ -10,6 +10,17 @@
 	<name>Pro_stock</name>
 	<url>http://maven.apache.org</url>
 	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
+		<!-- 布局功能支持的程序 thymeleaf3主程序适配layout2以上的版本-->
+		<thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
+		<org.apache.httpcomponents.version>4.5</org.apache.httpcomponents.version>
+		<org.projectlombok.version>1.18.0</org.projectlombok.version>
+	</properties>
+	
 	<parent>
 	    <groupId>org.springframework.boot</groupId>
 	    <artifactId>spring-boot-starter-parent</artifactId>
@@ -88,16 +99,7 @@
         </dependency>
 	</dependencies>
 	
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-		<thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
-		<!-- 布局功能支持的程序 thymeleaf3主程序适配layout2以上的版本-->
-		<thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
-		<org.apache.httpcomponents.version>4.5</org.apache.httpcomponents.version>
-		<org.projectlombok.version>1.18.0</org.projectlombok.version>
-	</properties>
+
 	
 	<build>
 		<plugins>

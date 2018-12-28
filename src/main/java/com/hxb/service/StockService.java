@@ -1,8 +1,9 @@
 package com.hxb.service;
 
+import com.hxb.entity.Stock;
 
 public interface StockService {
 	
 	
-	public String getStockInfo(String code);
+	public Stock getStockInfo(String code);
 }

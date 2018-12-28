@@ -1,6 +1,7 @@
 package com.hxb.dao;
 
+import com.hxb.entity.Stock;
 
 public interface StockDao {
-	public String queryStockByCode(String code);
+	public Stock queryStockByCode(String code);
 }

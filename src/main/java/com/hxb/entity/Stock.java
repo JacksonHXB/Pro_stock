@@ -18,12 +18,12 @@ public class Stock {
 	private Float open;//今日开盘价
 	private Float close;//昨日收盘价
 	private Float price;//当前价格
-	private Float hight;//今日最高价
+	private Float high;//今日最高价
 	private Float low;//今日最低价
 	private Float buyPrice;//竞买价，即买一报价
 	private Float sellPrice;//竞卖价
 	private Integer dealNum;//成交的股票数，由于股票交易以一百股为基本单位，所以在使用时，通常把该值除以一百
-	private Integer dealPrice;//成交金额，单位为“元”，为了一目了然，通常以“万元”为成交金额的单位，所以通常把该值除以一万
+	private Float dealPrice;//成交金额，单位为“元”，为了一目了然，通常以“万元”为成交金额的单位，所以通常把该值除以一万
 	private Integer firstBuyNum;//“买一”申请4695股，即47手
 	private Float firstBuyPrice;//“买一”报价；
 	private Integer secondBuyNum;//买二

@@ -40,8 +40,8 @@ public class myMvcConfig extends WebMvcConfigurerAdapter{
 			public void addInterceptors(InterceptorRegistry registry) {
 				System.out.println("正在进行拦截器检查！");
 				InterceptorRegistration addInterceptor = registry.addInterceptor(new LoginHandlerInterceptor());
-				addInterceptor.addPathPatterns("/**");
-				addInterceptor.excludePathPatterns("/index.html","/","/user/login");
+				//addInterceptor.addPathPatterns("/**");
+				addInterceptor.excludePathPatterns("/index.html","/","/user/login","/**");
 			}
 		};
 		return webMvcConfigurerAdapter;

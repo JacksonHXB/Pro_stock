@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hxb.entity.Stock;
 import com.hxb.service.StockService;
 
 @RestController
@@ -15,8 +16,8 @@ public class StockController {
 	StockService stockService;
 	
 	@GetMapping("/stock/{code}")
-	public String getStockInfo(@PathVariable("code") String code){
-		String result = stockService.getStockInfo(code);
-		return result;
+	public Stock getStockInfo(@PathVariable("code") String code){
+		Stock stock = stockService.getStockInfo(code);
+		return stock;
 	}
 }
