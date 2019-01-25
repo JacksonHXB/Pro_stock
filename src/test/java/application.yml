@@ -2,7 +2,8 @@ spring:
     datasource:
         username: root
         password: 123456
-        url: jdbc:mysql://192.168.0.180:3306/db_stock
+        # url: jdbc:mysql://192.168.0.180:3306/db_stock
+        url: jdbc:mysql://127.0.0.1:3306/db_stock
         driver-class-name: com.mysql.jdbc.Driver
         
         # 引入自定义的数据源

@@ -85,6 +85,13 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpmime</artifactId>
         </dependency>
+        <!-- junit -->
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-api</artifactId>
+		    <version>5.3.1</version>
+		    <scope>test</scope>
+		</dependency>
         <!-- 热部署模块 -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>

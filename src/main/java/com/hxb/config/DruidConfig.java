@@ -40,6 +40,7 @@ public class DruidConfig {
 		bean.setInitParameters(initParams);
 		return bean;
 	}
+	
 	//2，配置一个监控的filter
 	@Bean
 	public FilterRegistrationBean webStatFilter(){

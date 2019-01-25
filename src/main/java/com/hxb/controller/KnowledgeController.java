@@ -1,11 +1,8 @@
 package com.hxb.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hxb.entity.Knowlege;
-import com.hxb.service.KnowlegeService;
 import com.hxb.service.StockService;
 
 @RestController
