@@ -9,11 +9,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Knowlege {
+public class Knowledge {
 	private Integer id;
 	private String title;
 	private String content;
 	private String keyword;
 	private Date time;
-	private String[] websites;
+	private String websites;
 }

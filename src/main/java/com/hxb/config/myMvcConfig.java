@@ -44,7 +44,9 @@ public class myMvcConfig extends WebMvcConfigurerAdapter{
 				addInterceptor.excludePathPatterns("/index.html","/","/user/login","/**");
 			}
 		};
-		return webMvcConfigurerAdapter;
+		
+		//禁用拦截器
+		return new WebMvcConfigurerAdapter() {};
 	}
 }
 

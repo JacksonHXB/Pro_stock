@@ -6,6 +6,7 @@ import java.util.Date;
 
 public class TimeUtil {
 	
+	/*将字符串转换成日期*/
 	public static Date transferToDate(String str, String format){
 		SimpleDateFormat sdf = new SimpleDateFormat(format);
 		try {

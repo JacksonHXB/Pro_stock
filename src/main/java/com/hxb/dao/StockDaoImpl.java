@@ -13,6 +13,7 @@ import com.hxb.utils.TimeUtil;
 @Repository
 public class StockDaoImpl implements StockDao{
 	
+	/*通过股票代码查询该股票*/
 	@Override
 	public Stock queryStockByCode(String code) {
 		Stock stock = new Stock();
@@ -29,7 +30,7 @@ public class StockDaoImpl implements StockDao{
 		stock.setLow(Float.parseFloat(resultMap.get("low")));
 		stock.setBuyPrice(Float.parseFloat(resultMap.get("buyPrice")));
 		stock.setSellPrice(Float.parseFloat(resultMap.get("sellPrice")));
-		stock.setDealNum(Integer.parseInt(resultMap.get("dealNum")));;
+		stock.setDealNum(Long.parseLong(resultMap.get("dealNum")));;
 		stock.setDealPrice(Float.parseFloat(resultMap.get("dealPrice")));
 		stock.setFirstBuyNum(Integer.parseInt(resultMap.get("firstBuyNum")));
 		stock.setFirstBuyPrice(Float.parseFloat(resultMap.get("firstBuyPrice")));
@@ -52,11 +53,11 @@ public class StockDaoImpl implements StockDao{
 		stock.setFifthSellNum(Integer.parseInt(resultMap.get("fifthSellNum")));
 		stock.setFifthSellPrice(Float.parseFloat(resultMap.get("fifthSellPrice")));
 		stock.setDate(TimeUtil.transferToDate(resultMap.get("date"), "yyyy-MM-dd"));
-		stock.setDate(TimeUtil.transferToDate(resultMap.get("time"), "HH:mm:ss"));
+		stock.setTime(resultMap.get("time"));
 		return stock;
 	}
 	
-	
+	/*将从接口获取的字符串数据转换成标准的map格式*/
 	public Map<String, String> handler(String str) {
 		Map<String, String> result = new HashMap<String, String>();
 		String[] arr = str.split(",");
