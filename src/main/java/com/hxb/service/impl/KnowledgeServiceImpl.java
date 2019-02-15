@@ -27,13 +27,7 @@ public class KnowledgeServiceImpl implements KnowledgeService{
 	/*分页获取所有的知识*/
 	@Override
 	public List<Knowledge> getAllKnowledge(String page, String size, String sort) {
-		Map<String, String> paging = new HashMap<String, String>();
-		paging.put("page", page);
-		paging.put("size", size);
-		paging.put("sort", sort);
-		List<Knowledge> knowledgeList = knowledgeDao.queryAllKnowledge(paging);
-		System.out.println(knowledgeList);
-		
+		List<Knowledge> knowledgeList = knowledgeDao.queryAllKnowledge(null, Integer.parseInt(page), Integer.parseInt(size), null);
 		return null;
 	}
 }

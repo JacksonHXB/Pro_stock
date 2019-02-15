@@ -1,9 +1,9 @@
 package com.hxb.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.hxb.entity.Knowledge;
 
@@ -14,6 +14,6 @@ public interface KnowledgeDao {
 	public void queryKnowledgeByKeys(String[] keys);
 
 	/*根据关键字分页获取知识列表*/
-	public List<Knowledge> queryAllKnowledge(Map<String, String> paging);
+	public List<Knowledge> queryAllKnowledge(@Param("key")String key, @Param("page")int page, @Param("size")int size, @Param("sort")String sort);
 
 }

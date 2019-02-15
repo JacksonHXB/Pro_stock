@@ -12,17 +12,15 @@
 	-->
 	
 	<!-- 查询所有用户 -->
-	<select id="queryAllKnowledge" parameterType="Map" resultType="com.hxb.entity.Knowledge">
+	<select id="queryAllKnowledge" resultType="com.hxb.entity.Knowledge">
 		SELECT * FROM tb_knowledge
-		<where>
-			LIMIT #{page}, #{size}
-			<if test="key!=null">
-				AND KEY = #{key}
-			</if>
-			<if test="sort!=null">
-				ORDER BY #{sort} DESC
-			</if>
-	    </where>
+		<if test="key != null">
+			WHERE keyword LIKE CONCAT('%',#{key},'%')
+		</if>
+		<if test="sort!=null">
+			ORDER BY #{sort} DESC
+		</if>
+		LIMIT #{page}, #{size}
 	</select>
 </mapper>
 
