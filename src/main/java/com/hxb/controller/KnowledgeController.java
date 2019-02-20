@@ -1,12 +1,16 @@
 package com.hxb.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hxb.entity.Knowledge;
+import com.hxb.entity.RespEntity;
 import com.hxb.service.KnowledgeService;
 
 @RestController
@@ -15,23 +19,36 @@ public class KnowledgeController {
 	@Autowired
 	KnowledgeService knowledgeService;
 	
-	/*模糊查询知识库*/
-	@GetMapping("/knowledge/getKnowledges")
-	public void getKnowledges(String[] keys) {
-		List<Knowledge> knowledges = knowledgeService.getKnowledgeByKeys(keys);
-		System.out.println(knowledges);
-		System.out.println("测试");
+	/*添加或更新知识
+	 * id: 传递，表示更新，不传递，表示添加
+	 * */
+	@PutMapping("/knowledge/addOrUpdate")
+	public RespEntity addOrdUpdateKnowledge(@ModelAttribute("knowledge") Knowledge knowledge) {
+		RespEntity result = knowledgeService.addOrUpdate(knowledge);
+		return result;
 	}
 	
-	/*获取所有的知识*/
-	@GetMapping("/knowledge/getAllKnowledge")
-	public List<Knowledge> getAllKnowledge(String page, String size, String sort) {
-		System.out.println(page);
-		System.out.println(size);
-		System.out.println(sort);
-		List<Knowledge> knowledges = knowledgeService.getAllKnowledge(page, size, sort);
-		return null;
+	/*删除知识*/
+	@DeleteMapping("/knowledge/del/{id}")
+	public RespEntity delKnowledge(@PathVariable("id")String id) {
+		RespEntity result = knowledgeService.delKnowledge(id);
+		return result;
 	}
+	
+	
+	/*查询知识
+	 * page: 当前页数
+	 * size: 显示条数
+	 * sort: 排序字段
+	 * key: 搜索的关键字(传递则表示模糊查询，不传递表示普通查询)
+	 * */
+	@GetMapping("/knowledge/search/{page}")
+	public RespEntity getKnowledges(@PathVariable("page")String page, String size, String sort, String keyword) {
+		RespEntity result = knowledgeService.getKnowledges(keyword, page, size, sort);
+		return result;
+	}
+	
+	
 }
 
 

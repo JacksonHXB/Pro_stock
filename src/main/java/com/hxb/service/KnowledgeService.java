@@ -1,15 +1,19 @@
 package com.hxb.service;
 
-import java.util.List;
 
 import com.hxb.entity.Knowledge;
+import com.hxb.entity.RespEntity;
 
 public interface KnowledgeService {
 	
-	/*根据关键字获取知识*/
-	public List<Knowledge> getKnowledgeByKeys(String[] keys);
+	/*删除知识*/
+	public RespEntity delKnowledge(String id);
+	
+	/*搜索知识*/
+	public RespEntity getKnowledges(String key, String page, String size, String sort);
+	
+	/*添加或者是更新知识*/
+	public RespEntity addOrUpdate(Knowledge knowledge);
 
-	/*分页获取知识列表*/
-	public List<Knowledge> getAllKnowledge(String page, String size, String sort);
 	
 }
