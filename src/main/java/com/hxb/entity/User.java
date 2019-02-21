@@ -2,51 +2,26 @@ package com.hxb.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 /*用户*/
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class User {
 	private Integer id;//ID号			
 	private String username;//名称
 	private String password;
-	private Integer gender;//性别
+	private String gender;//性别
+	@JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")  //时间格式化
 	private Date birth;//出生日期
 	private String email;//Email地址
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public Integer getGender() {
-		return gender;
-	}
-	public void setGender(Integer gender) {
-		this.gender = gender;
-	}
-	public Date getBirth() {
-		return birth;
-	}
-	public void setBirth(Date birth) {
-		this.birth = birth;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
 }
 
 

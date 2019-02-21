@@ -1,15 +1,21 @@
 package com.hxb.service;
 
-import java.util.List;
 
-
+import com.hxb.entity.RespEntity;
 import com.hxb.entity.User;
 
 public interface UserService {
 	
-	/*获取所有用户*/
-	public List<User> getUsers();
-	
 	/*用户登陆*/
 	public User login(String username, String password);
+	
+	/*获取用户列表*/
+	public RespEntity getUsers(String keyword, String page, String size, String sort);
+	
+	/*删除用户*/
+	public RespEntity delUser(String id);
+	
+	/*添加或者是更新用户*/
+	public RespEntity addOrUpdateUser(User user);
+	
 }

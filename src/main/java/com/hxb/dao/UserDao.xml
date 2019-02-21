@@ -3,15 +3,41 @@
 	  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hxb.dao.UserDao">
-	<!-- 查询所有用户 -->
-	<select id="queryUsers" resultType="com.hxb.entity.User">
+    
+    <!-- 
+    select user.id,user.username,dict.name as gender from tb_dict_item dict inner join tb_user user on dict.value = user.gender
+     -->
+    
+	<select id="queryAllUsers" resultMap="userList">
 		SELECT * FROM tb_user
+		<if test="keyword != null">
+			WHERE username LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="sort != null">
+			ORDER BY ${sort} ASC	<!-- 根据某个字段排序，这里是使用$而不是# -->
+		</if>
+		<if test="size!= 0">
+			LIMIT #{page}, #{size}
+		</if>
 	</select>
 	
-	<!-- 根据用户名查询用户 -->
-	<select id="queryUserByName" resultType="com.hxb.entity.User">
-		SELECT * FROM tb_user WHERE username=#{username} 
-	</select>
+	<!-- 插入用户 -->
+	<insert id="insertUser" parameterType="com.hxb.entity.User" >
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO tb_user(username,password,gender,birth,email)values(#{username},#{password},#{gender},#{birth, jdbcType=TIMESTAMP},#{email})
+    </insert>
+    
+    <!-- 删除用户 -->
+	<delete id="deleteUser" parameterType="java.lang.Integer">
+		DELETE FROM tb_user WHERE id=#{id}
+	</delete>
+	
+	<!-- 更新用户 -->
+	<update id="updateUser" parameterType="com.hxb.entity.User">
+		UPDATE tb_user SET username=#{username}, password=#{password}, gender=#{gender},birth=#{birth, jdbcType=TIMESTAMP}, email=#{email} WHERE id=#{id}
+	</update>
 </mapper>
 
 

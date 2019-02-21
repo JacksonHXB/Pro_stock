@@ -3,16 +3,22 @@ package com.hxb.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.hxb.entity.User;
 
 @Mapper
 public interface UserDao {
 	
-	/*查询所有用户*/
-	public List<User> queryUsers();
+	/*查询用户*/
+	public List<User> queryAllUsers(@Param("keyword")String keyword, @Param("page")int page, @Param("size")int size, @Param("sort")String sort);
 	
-	/*根据用户名查询用户*/
-	public User queryUserByName(String username);
+	/*删除用户*/
+	public Integer deleteUser(Integer id);
 	
+	/*更新用户*/
+	public Integer updateUser(User user);
+	
+	/*插入用户*/
+	public Integer insertUser(User user);
 }
