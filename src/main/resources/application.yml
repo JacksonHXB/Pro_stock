@@ -6,7 +6,6 @@ server:
     
     
     
-    
 spring:
     datasource:
         username: root
