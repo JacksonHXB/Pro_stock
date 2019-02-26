@@ -40,6 +40,7 @@ public class UserServiceImpl implements UserService{
 	/*获取用户列表*/
 	@Override
 	public RespEntity getUsers(String keyword, String page, String size, String sort) {
+		System.out.println(page);
 		List<User> userList = new ArrayList<User>();
 		int start = 0;
 		int size2 = 0;

@@ -7,19 +7,21 @@
     <!-- 
     select user.id,user.username,dict.name as gender from tb_dict_item dict inner join tb_user user on dict.value = user.gender
      -->
+     <!--  
     
-	<select id="queryAllUsers" resultMap="userList">
+	<select id="queryAllUsers" resultType="com.hxb.entity.User">
 		SELECT * FROM tb_user
 		<if test="keyword != null">
 			WHERE username LIKE CONCAT('%',#{keyword},'%')
 		</if>
 		<if test="sort != null">
-			ORDER BY ${sort} ASC	<!-- 根据某个字段排序，这里是使用$而不是# -->
+			ORDER BY ${sort} ASC	
 		</if>
 		<if test="size!= 0">
 			LIMIT #{page}, #{size}
 		</if>
 	</select>
+     -->
 	
 	<!-- 插入用户 -->
 	<insert id="insertUser" parameterType="com.hxb.entity.User" >
