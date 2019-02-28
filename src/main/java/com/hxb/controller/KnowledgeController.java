@@ -44,6 +44,7 @@ public class KnowledgeController {
 	 * */
 	@GetMapping("/knowledge/search/{page}")
 	public RespEntity getKnowledges(@PathVariable("page")String page, String size, String sort, String keyword) {
+		System.out.println(size);
 		RespEntity result = knowledgeService.getKnowledges(keyword, page, size, sort);
 		return result;
 	}
